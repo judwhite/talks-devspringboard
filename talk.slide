@@ -17,9 +17,7 @@ https://github.com/judwhite
 
 - Jud White
 - [[https://github.com/judwhite]]
-- C and C++, a long time ago
-- C# for 15 years
-- Gopher for 2.5 years
+- C and C++ a long time ago, C# for 15 years, Gopher for 2.5 years
 - [[http://nsq.io/][NSQ]] contributor (distributed message queue)
 - Likes to code; doesn't like phone calls in the middle of the night
 
@@ -40,34 +38,26 @@ https://github.com/judwhite
 Sweet spot
 
 - Designed with servers and distributed systems in mind
+- Reliable and efficient software
 - Replace complex bash scripts
 - Anything you'd use any other GC'd language for
 
-If it's your thing
+Also...
 
-- [[https://github.com/golang/go/wiki/Mobile][Mobile]]
-- Desktop - Qt ([[https://github.com/therecipe/qt][1]], [[https://github.com/visualfc/goqt][2]]), [[https://github.com/go-qml/qml][QML]], GTK ([[https://github.com/mattn/go-gtk/][1]], [[https://github.com/gotk3/gotk3][2]])
-- [[https://github.com/gopherjs/gopherjs][GopherJS]] transpiler
+- [[https://github.com/golang/go/wiki/Mobile][Mobile]], [[https://github.com/gopherjs/gopherjs][GopherJS]], Desktop (Qt, QML, GTK)
 
 Use C, C++, or Rust
 
 - A browser engine
 - Anything that can't tolerate GC
 
-* What's Go good at?
-
-TODO TODO TODO
+* Why Go?
 
 - Small language - 25 keywords
-- Easy to learn
-- Fast & low memory footprint - save money on your AWS bill
+- It's fun and easy to learn
+- Fast and low memory footprint - save money on your AWS bill
 - Statically typed
-Server: 
-- It's fun
 - Great community, easy to get help
-- Reliable and efficient software
-- Learning more languages makes you a better developer in languages you already know.
-
 
 * Who's using Go?
 
@@ -152,8 +142,11 @@ Anatomy:
 - Images
 - Text/HTML templating
 - Testing / Code coverage
-- Community packages [[https://godoc.org]]
+
+Community packages
+
 - [[https://github.com/avelino/awesome-go]] - Curated list of packages
+- [[https://godoc.org]]
 
 * Resources & Community
 
@@ -217,11 +210,11 @@ Cross-platform IDEs
 
 - Tabs? Spaces? go fmt
 - Format code on save
-- Add it to [[https://gist.githubusercontent.com/judwhite/c92e58607e483811a7eb/raw/b18c0d03cb995f7aad68e73616b6098cb19b7886/test.sh][test.sh]]
+- Add it to your CI server (see [[https://gist.githubusercontent.com/judwhite/c92e58607e483811a7eb/raw/b18c0d03cb995f7aad68e73616b6098cb19b7886/test.sh][test.sh]])
 
 Example:
 
-- [[http://play.golang.org/p/LJyK8RT3lg]] (click Format)
+- [[http://play.golang.org/p/LJyK8RT3lg]] (click "Format")
 
 * go get
 
@@ -230,7 +223,7 @@ Example:
 
 Example:
 
-  go get github.com/Sirupsen/logrus
+  go get -u github.com/Sirupsen/logrus
 
 * $GOPATH
 
@@ -247,16 +240,11 @@ Include bin directories in `PATH`:
 
 - go build
 - build flags - set var in binary at build time, like commit hash, version, build date
-
 - go run
-
 - go test
 - go test -race
 - go test -run none -bench .
 - go tool pprof - profile CPU, memory, garbage, contention
-
-- godoc
-
 - go vet
 - [[https://github.com/golang/lint][golint]] - checks code based on [[https://github.com/golang/go/wiki/CodeReviewComments][Go Code Review Comments]]
 - [[https://github.com/kisielk/errcheck][errcheck]]
@@ -267,12 +255,25 @@ TODO GO-TORCH
 TODO CALL GRAPH
 
 * Testing
+
 * Code Coverage
-go test -cover -coverprofile=cover.out
-go tool cover -html=cover.out
+
+ go test -cover -coverprofile=cover.out
+ go tool cover -html=cover.out
+ 
+.image images/coverage.png 325 _
 
 * Profiling
+
+.image images/cpu-profile.png 550 _
+
 * Flame Graph with go-torch
+
+.image images/flamegraph.png _ 1000
+
+* Benchmarking / benchviz
+
+.image images/benchviz-complete.png 550 _
 
 * Race Detector
 
@@ -378,6 +379,9 @@ Databases:
 - [[https://golang.org/pkg/database/sql/#pkg-examples]]
 - [[http://go-database-sql.org/]]
 - [[https://github.com/golang/go/wiki/SQLDrivers]]
+
+ORMs:
+
 - [[https://github.com/go-gorp/gorp]]
 - [[https://github.com/jinzhu/gorm]]
 
@@ -403,10 +407,13 @@ Testing:
 Structured Logging:
 
 - [[https://github.com/Sirupsen/logrus]]
-- TODO ADD STRUCTURE LOGGING EXAMPLE
+
+ time="2016-10-26T13:16:58-05:00" level=info msg=OK bytes_sent=261 http_status=200 method=GET remote_addr="10.164.22.13:61492" time_taken=0 uri="/api/v1/GlobalizationContext/RC1359112" 
+ time="2016-10-26T13:16:58-05:00" level=info msg=OK bytes_sent=261 http_status=200 method=GET remote_addr="10.164.22.13:61493" time_taken=0 uri="/api/v1/GlobalizationContext/RC1364328" 
+ time="2016-10-26T13:16:58-05:00" level=info msg=OK bytes_sent=267 http_status=200 method=GET remote_addr="10.164.22.13:61494" time_taken=0 uri="/api/v1/GlobalizationContext/RC1364697" 
 
 * My other talks
 
 - [[https://github.com/judwhite/talks-edgeatx][Go: A Practical Start Guide]] (more focus on concurrency)
 - [[https://github.com/judwhite/talks-goperf][Performance Tuning in Go]]
-- go-fuzz at November Austin Golang Meetup. We're gon' break things.
+- November Austin Golang Meetup: [[https://github.com/dvyukov/go-fuzz][go-fuzz]]. We're gonna break things!

@@ -32,6 +32,6 @@ func TestEcho(t *testing.T) {
 	// assert
 	expected := []byte("hello!")
 	if bytes.Compare(actual, expected) != 0 {
-		t.Fatalf("expected: %s actual: %s", expected, actual)
+		t.Fatalf("want: %s got: %s", expected, actual)
 	}
 }

@@ -26,7 +26,7 @@ func main() {
 
 	// start HTTP server with our router
 	log.Println("Listening...")
-	err := http.ListenAndServe("127.0.0.1:7777", r)
+	err := http.ListenAndServe("127.0.0.1:7676", r)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -81,6 +81,7 @@ func JSON(handler handlerFunc) http.HandlerFunc {
 			} else if bytes, ok := resp.([]byte); ok {
 				w.Write(bytes)
 			} else {
+				w.Header().Add("Content-Type", "application/json")
 				enc := json.NewEncoder(w)
 				enc.Encode(resp)
 			}

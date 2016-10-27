@@ -46,18 +46,18 @@ func TestEcho(t *testing.T) {
 		{"/api/v1/echo/hello", "I don't want to say that.", 400},
 	}
 
-	for _, test := range cases {
-		body, status, err := get(ts, test.path)
+	for _, c := range cases {
+		body, status, err := get(ts, c.path)
 		if err != nil {
 			t.Error(err)
 		}
 
 		// assert
-		if body != test.expectedBody {
-			t.Errorf("expected: %q actual: %q", test.expectedBody, body)
+		if body != c.expectedBody {
+			t.Errorf("body, want: %q got: %q", c.expectedBody, body)
 		}
-		if status != test.expectedStatus {
-			t.Errorf("expected: %d actual: %d", test.expectedStatus, status)
+		if status != c.expectedStatus {
+			t.Errorf("status, want: %d got: %d", c.expectedStatus, status)
 		}
 	}
 }
