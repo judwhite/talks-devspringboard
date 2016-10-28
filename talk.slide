@@ -250,10 +250,6 @@ Include bin directories in `PATH`:
 - [[https://github.com/kisielk/errcheck][errcheck]]
 - [[https://github.com/alecthomas/gometalinter][gometalinter]] - combines popular static analysis tools
 
-TODO  CODE COVERAGE
-TODO GO-TORCH
-TODO CALL GRAPH
-
 * Testing
 
 * Code Coverage
